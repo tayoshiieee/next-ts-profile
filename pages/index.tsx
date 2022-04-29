@@ -44,7 +44,7 @@ const Home: NextPage = () => {
           <div className="text-center">
             <Image
               src="/images/logo.png"
-              art="logo"
+              alt="logo"
               width={120}
               height={60}
               // layout="fill"
@@ -321,7 +321,7 @@ const Home: NextPage = () => {
                   <div className="text-center">
                     <Image
                       src="/images/value1.png"
-                      art="value1"
+                      alt="value1"
                       width={184}
                       height={157}
                       // layout="fill"
@@ -339,7 +339,7 @@ const Home: NextPage = () => {
                   <div className="text-center">
                     <Image
                       src="/images/value2.png"
-                      art="value2"
+                      alt="value2"
                       width={184}
                       height={157}
                       // layout="fill"
@@ -357,7 +357,7 @@ const Home: NextPage = () => {
                   <div className="text-center">
                     <Image
                       src="/images/value3.png"
-                      art="value3"
+                      alt="value3"
                       width={184}
                       height={157}
                       // layout="fill"
