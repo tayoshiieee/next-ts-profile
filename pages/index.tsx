@@ -101,10 +101,10 @@ const Home: NextPage = () => {
           <div className="justify-between p-5 text-center md:flex">
             <div className="md:my-auto md:ml-20 md:text-left">
               <h1 className="text-2xl font-bold tracking-widest text-white md:text-4xl">
-                メインタイトル
+                YOSHIDA TATUSYA
               </h1>
               <p className="my-3 text-base tracking-widest text-white md:text-2xl">
-                サブタイトル
+                自己紹介
               </p>
             </div>
             <div className="px-10 md:p-10 md:text-right">
