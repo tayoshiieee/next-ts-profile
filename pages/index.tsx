@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
+import { imageOptimizer } from 'next/dist/server/image-optimizer'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Link as ScrollLink } from 'react-scroll'
+import CardAbout from '../components/CardAbout'
+import CardValue from '../components/CardValue'
 
 const Home: NextPage = () => {
   return (
@@ -101,7 +104,7 @@ const Home: NextPage = () => {
           <div className="justify-between p-5 text-center md:flex">
             <div className="md:my-auto md:ml-20 md:text-left">
               <h1 className="text-2xl font-bold tracking-widest text-white md:text-4xl">
-                YOSHIDA TATUSYA
+                YOSHIDA TATSUYA
               </h1>
               <p className="my-3 text-base tracking-widest text-white md:text-2xl">
                 自己紹介
@@ -130,57 +133,40 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div className="mx-auto max-w-screen-lg justify-center md:flex">
-            <div className="mx-auto w-[320px] p-5">
-              <div className="text-center">
-                <Image
-                  src="/images/about-1.png"
-                  width={184}
-                  height={157}
-                  // layout="fill"
-                  objectFit="contain"
-                />
+            <CardAbout
+              image="/images/about-1.png"
+              subheading="趣味"
+              text="映画を見るのが好きです。好きな映画監督はクエンティン・タランティーノです。"
+            ></CardAbout>
+            <CardAbout
+              image="/images/about-2.png"
+              subheading="好きな食べ物"
+              text="焼きそば、からあげ、うどんが好きです。つまり麺が好きです。つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。"
+            ></CardAbout>
+            <CardAbout
+              image="/images/about-3.png"
+              subheading="性格"
+              text="小心者の内弁慶。つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。"
+            ></CardAbout>
+            {/* SSGの場合 */}
+            {/* {allPostsData.map(({ index, image, subheading, text }) => (
+              <div key={index} className="mx-auto w-[320px] p-5">
+                <div className="text-center">
+                  <Image
+                    src={image}
+                    alt="about"
+                    width={184}
+                    height={157}
+                    // layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+                <p className="text-[#008c8d] font-bold text-xl md:text-2xl text-center my-1 md:my-3">
+                  {subheading}
+                </p>
+                <p className="leading-7">{text}</p>
               </div>
-              <p className="my-1 text-center text-xl font-bold text-[#008c8d] md:my-3 md:text-2xl">
-                趣味
-              </p>
-              <p className="leading-7">
-                つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほし。
-              </p>
-            </div>
-            <div className="mx-auto w-[320px] p-5">
-              <div className="text-center">
-                <Image
-                  src="/images/about-2.png"
-                  width={184}
-                  height={157}
-                  // layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-              <p className="my-1 text-center text-xl font-bold text-[#008c8d] md:my-3 md:text-2xl">
-                好きな食べ物
-              </p>
-              <p className="leading-7">
-                つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。つれづれなるまゝに日暮らし硯にむかひて
-              </p>
-            </div>
-            <div className="mx-auto w-[320px] p-5">
-              <div className="text-center">
-                <Image
-                  src="/images/about-3.png"
-                  width={184}
-                  height={157}
-                  // layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-              <p className="my-1 text-center text-xl font-bold text-[#008c8d] md:my-3 md:text-2xl">
-                性格
-              </p>
-              <p className="leading-7">
-                つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、
-              </p>
-            </div>
+            ))} */}
           </div>
         </section>
         <section
@@ -305,7 +291,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-        <section id="values" className="">
+        <section id="values">
           <div className="mx-auto justify-center py-6 text-center md:flex">
             <p className="text-xl font-bold tracking-widest md:text-3xl">
               価値観
@@ -314,63 +300,18 @@ const Home: NextPage = () => {
               VALUE
             </p>
           </div>
-          <div className="">
-            <div className="mx-auto max-w-screen-lg justify-center md:flex">
+          <div>
+            <div className="mx-auto max-w-screen-lg">
               <div className="relative mx-5 justify-center divide-[#c5eaea] rounded-lg bg-white md:flex md:divide-x-2 md:px-5 md:py-10">
-                <div className="md:w-max-[320px] mx-auto px-5 py-5 md:py-0">
-                  <div className="text-center">
-                    <Image
-                      src="/images/value1.png"
-                      alt="value1"
-                      width={184}
-                      height={157}
-                      // layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p className="my-1 text-center text-lg font-bold text-[#384359] md:my-3">
-                    価値観01
-                  </p>
-                  <p className="text-sm leading-7 md:text-base md:leading-7">
-                    つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。
-                  </p>
-                </div>
-                <div className="md:w-max-[320px] mx-auto px-5 py-5 md:py-0">
-                  <div className="text-center">
-                    <Image
-                      src="/images/value2.png"
-                      alt="value2"
-                      width={184}
-                      height={157}
-                      // layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p className="my-1 text-center text-lg font-bold text-[#384359] md:my-3">
-                    価値観02
-                  </p>
-                  <p className="text-sm leading-7 md:text-base md:leading-7">
-                    つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。
-                  </p>
-                </div>
-                <div className="md:w-max-[320px] mx-auto px-5 py-5 md:py-0">
-                  <div className="text-center">
-                    <Image
-                      src="/images/value3.png"
-                      alt="value3"
-                      width={184}
-                      height={157}
-                      // layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p className="my-1 text-center text-lg font-bold text-[#384359] md:my-3">
-                    価値観03
-                  </p>
-                  <p className="text-sm leading-7 md:text-base md:leading-7">
-                    つれづれなるまゝに日暮らし硯にむかひて心にうつりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。
-                  </p>
-                </div>
+                <CardValue title="価値観00" image="/images/value1.png">
+                  つれづれなるまりゆくよしなし事をそこはかとなく書きつくればつれづれなるまりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。
+                </CardValue>
+                <CardValue title="価値観02" image="/images/value2.png">
+                  つれづれなるまりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。
+                </CardValue>
+                <CardValue title="価値観03" image="/images/value3.png">
+                  つれづれなるまりゆくよしなし事をそこはかとなく書きつくれば、あやしうこそものぐるほしけれ。
+                </CardValue>
               </div>
             </div>
           </div>
